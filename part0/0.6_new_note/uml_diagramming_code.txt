@@ -1,0 +1,5 @@
+loop save button click
+    browser->browser: add note to notes list and redraw notes list.
+    browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+end
+

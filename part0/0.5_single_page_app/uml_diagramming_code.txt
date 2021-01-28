@@ -1,0 +1,21 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser
+spa.js begins to execute and an XMLHttpRequest object
+is used to open a request to get data.json.
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data.json
+
+note over browser
+spa.js continues to execute. A new notes list is created.
+Each element in data.json is added to the list. The child 
+node of the spa HTML element with the id attribute of 
+"notes" is overwritten with the new list.
+end note

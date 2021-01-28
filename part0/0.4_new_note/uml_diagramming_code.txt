@@ -1,0 +1,23 @@
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: redirect to location: /exampleapp/notes
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.cs
+browser->server: https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser: 
+main.js begins to execute. Instructions use
+XMLHttpRequest object to request data.json.
+end note
+
+browser->server: https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data.json
+
+note over browser: 
+main.js XMLHttpRequest handler creates a list,
+iterates over each element in data.json, appends 
+each note to the list, then appends the list to
+the HTML element with id="notes".
+end note

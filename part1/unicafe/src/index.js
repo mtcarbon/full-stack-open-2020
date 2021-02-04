@@ -1,24 +1,31 @@
 import React, { useState  } from 'react'
 import ReactDOM from 'react-dom'
 
-const Line = (props) =>{
-    const label = props.label
-    const value = props.value
-
+const Statistics = (props) => {
     return (
         <>
-            {label} {value}<br />
+            <Line label={props.goodLbl} value={props.goodVal}/>
+            <Line label={props.ntrlLbl} value={props.ntrlVal}/>
+            <Line label={props.badLbl} value={props.badVal}/>
+            <Line label={props.allLbl} value={props.allVal}/>
+            <Line label={props.avgLbl} value={props.avgVal}/>
+            <Line label={props.pstvLbl} value={props.pstvVal}/>
+        </>
+    )
+}
+
+const Line = (props) =>{
+    return (
+        <>
+            {props.label} {props.value}<br />
         </>
     )                        
 }
 
 const Button = (props) => {
-    const text = props.text
-    const handleClick = props.handleClick
-    
     return (
-        <button onClick={handleClick}>
-            {text}
+        <button onClick={props.handleClick}>
+            {props.text}
         </button>
     )
 }
@@ -75,12 +82,14 @@ const App = () => {
             <Button text='neutral' handleClick={incNeutral}/>
             <Button text='bad' handleClick={incBad}/>
             <Header header='statistics'/>
-            <Line label='good' value={good}/>
-            <Line label='neutral' value={neutral}/>
-            <Line label='bad' value={bad}/>
-            <Line label='all' value={all}/>
-            <Line label='average' value={avg}/>
-            <Line label='positve' value={prcntPstv}/>
+            <Statistics 
+                goodLbl='good' goodVal={good}
+                ntrlLbl='neutral' ntrlVal={neutral}
+                badLbl='bad' badVal={bad}
+                allLbl='all' allVal={all}
+                avgLbl='average' avgVal={avg}
+                pstvLbl='positve' pstvVal={prcntPstv}
+            />
         </div>
     )
 }

@@ -2,16 +2,21 @@ import React, { useState  } from 'react'
 import ReactDOM from 'react-dom'
 
 const Statistics = (props) => {
-    return (
-        <>
-            <Line label={props.goodLbl} value={props.goodVal}/>
-            <Line label={props.ntrlLbl} value={props.ntrlVal}/>
-            <Line label={props.badLbl} value={props.badVal}/>
-            <Line label={props.allLbl} value={props.allVal}/>
-            <Line label={props.avgLbl} value={props.avgVal}/>
-            <Line label={props.pstvLbl} value={props.pstvVal}/>
-        </>
-    )
+    if (props.goodVal == 0 && props.ntrlVal == 0 && props.badVal == 0) {
+        return <p>No feeback given</p>
+    }
+    else {
+        return (
+            <>
+                <Line label={props.goodLbl} value={props.goodVal}/>
+                <Line label={props.ntrlLbl} value={props.ntrlVal}/>
+                <Line label={props.badLbl} value={props.badVal}/>
+                <Line label={props.allLbl} value={props.allVal}/>
+                <Line label={props.avgLbl} value={props.avgVal}/>
+                <Line label={props.pstvLbl} value={props.pstvVal}/>
+            </>
+        )
+    }
 }
 
 const Line = (props) =>{

@@ -5,7 +5,7 @@ import Persons from './components/Persons.js'
 
 const App = () => {
     const [persons, setPersons] = useState([{name: 'Arto Hellas', number: '040-1234567'}]) 
-    const [newName, setNewName] = useState('enter name...')
+    const [newName, setNewName] = useState('name goes here...')
     const [newNumber, setNewNumber] = useState('enter number...')
     const [newFilter, setNewFilter] = useState('')
 
